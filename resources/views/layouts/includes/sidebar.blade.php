@@ -1,0 +1,103 @@
+<!-- [ Sidebar Menu ] start -->
+<nav class="pc-sidebar">
+    <div class="navbar-wrapper">
+        <div class="m-header">
+            <a href="/dashboard" class="b-brand text-primary">
+                <!-- ========   Change your logo from here   ============ -->
+                <img src="{{ asset('assets/images/logo-dark.svg') }}" alt="logo image" class="logo-lg" />
+                <span class="badge bg-brand-color-2 rounded-pill ms-2 theme-version"></span>
+            </a>
+        </div>
+        <div class="navbar-content">
+            <ul class="pc-navbar">
+                <li class="pc-item pc-caption">
+                    <label>Navigation</label>
+                </li>
+                <li class="pc-item">
+                    <a href="/dashboard" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="ph-duotone ph-chart-pie"></i>
+                        </span>
+                        <span class="pc-mtext">Beranda</span></a>
+                </li>
+                <li class="pc-item pc-hasmenu">
+                    <a href="#!" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="ph-duotone ph-gauge"></i>
+                        </span>
+                        <span class="pc-mtext">Jama'ah</span>
+                        <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        {{-- <span class="pc-badge">2</span> --}}
+                    </a>
+                    <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="index.html">Tambah Baru</a></li>
+                        <li class="pc-item"><a class="pc-link" href="#">Data Per Wilayah</a> </li>
+                        <li class="pc-item"><a class="pc-link" href="#">Infografis Jamaah</a> </li>
+                    </ul>
+                </li>
+                <li class="pc-item pc-hasmenu">
+                    <a href="#!" class="pc-link"><span class="pc-micon"> <i
+                                class="ph-duotone ph-layout"></i></span><span class="pc-mtext">Acara</span><span
+                            class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                    <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="../demo/layout-compact.html">Tambah Acara</a></li>
+                        <li class="pc-item"><a class="pc-link" href="../demo/layout-horizontal.html">Kalender Acara</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+            <div class="card nav-action-card bg-brand-color-4">
+                <div class="card-body" style="background-image: url('../assets/images/layout/nav-card-bg.svg')">
+                    <h5 class="text-dark">Kini Tersedia</h5>
+                    <p class="text-dark text-opacity-75">Saat ini sudah tersedia portal web Musholla Al Muhajirin
+                        Denpasar Utara</p>
+                    <a href="https://phoenixcoded.support-hub.io/" class="btn btn-primary" target="_blank">Lihat
+                        Website</a>
+                </div>
+            </div>
+        </div>
+        <div class="card pc-user-card">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                        <img src="../assets/images/user/avatar-1.jpg" alt="user-image"
+                            class="user-avtar wid-45 rounded-circle" />
+                    </div>
+                    <div class="flex-grow-1 ms-3 me-2">
+                        <h6 class="mb-0">Andreyadi Muchtar</h6>
+                        <small>Administrator</small>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#" class="btn btn-icon btn-link-secondary avtar arrow-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,20">
+                            <i class="ph-duotone ph-windows-logo"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <ul>
+                                <li><a class="pc-user-links">
+                                        <i class="ph-duotone ph-user"></i>
+                                        <span>Akun Saya</span>
+                                    </a></li>
+                                <li><a class="pc-user-links">
+                                        <i class="ph-duotone ph-gear"></i>
+                                        <span>Pengaturan</span>
+                                    </a></li>
+                                <li><a class="pc-user-links">
+                                        <i class="ph-duotone ph-lock-key"></i>
+                                        <span>Ubah Sandi</span>
+                                    </a></li>
+                                <li><a class="pc-user-links">
+                                        <i class="ph-duotone ph-power"></i>
+                                        <span>Keluar</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- [ Sidebar Menu ] end -->
