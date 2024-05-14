@@ -2,19 +2,19 @@
 <nav class="pc-sidebar">
     <div class="navbar-wrapper">
         <div class="m-header">
-            <a href="/dashboard" class="b-brand text-primary">
+            <a href="{{ route('dashboard') }}" class="b-brand text-primary">
                 <!-- ========   Change your logo from here   ============ -->
-                <img src="{{ asset('assets/images/logo-dark.svg') }}" alt="logo image" class="logo-lg" />
+                <img src="{{ public_path('assets/images/logo-dark.svg') }}" alt="logo image" class="logo-lg" />
                 <span class="badge bg-brand-color-2 rounded-pill ms-2 theme-version"></span>
             </a>
         </div>
         <div class="navbar-content">
             <ul class="pc-navbar">
                 <li class="pc-item pc-caption">
-                    <label>Navigation</label>
+                    <label>Menu Utama</label>
                 </li>
                 <li class="pc-item">
-                    <a href="/dashboard" class="pc-link">
+                    <a href="{{ route('dashboard') }}" class="pc-link">
                         <span class="pc-micon">
                             <i class="ph-duotone ph-chart-pie"></i>
                         </span>
@@ -36,18 +36,42 @@
                     </ul>
                 </li>
                 <li class="pc-item pc-hasmenu">
-                    <a href="#!" class="pc-link"><span class="pc-micon"> <i
+                    <a href="javascript:void(0)" class="pc-link"><span class="pc-micon"> <i
                                 class="ph-duotone ph-layout"></i></span><span class="pc-mtext">Acara</span><span
                             class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                     <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link" href="../demo/layout-compact.html">Tambah Acara</a></li>
-                        <li class="pc-item"><a class="pc-link" href="../demo/layout-horizontal.html">Kalender Acara</a>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('acara.index') }}">Data Acara</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('acara.tambah') }}">Tambah Acara</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('acara.kalender') }}">Kalender Acara</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="pc-item pc-caption">
+                    <label>Keuangan</label>
+                    <i class="ph-duotone ph-chart-pie"></i>
+                </li>
+                <li class="pc-item">
+                    <a href="javascript:void(0)" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="ph-duotone ph-projector-screen-chart"></i>
+                        </span>
+                        <span class="pc-mtext">Kas</span>
+                    </a>
+                </li>
+                <li class="pc-item pc-hasmenu">
+                    <a href="javascript:void(0)" class="pc-link"><span class="pc-micon"> <i
+                                class="ph-duotone ph-layout"></i></span><span class="pc-mtext">Transaksi</span><span
+                            class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                    <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="">Pemasukan</a></li>
+                        <li class="pc-item"><a class="pc-link" href="">Pengeluaran</a></li>
+                        <li class="pc-item"><a class="pc-link" href="">Laporan</a>
                         </li>
                     </ul>
                 </li>
 
             </ul>
-            <div class="card nav-action-card bg-brand-color-4">
+            {{-- <div class="card nav-action-card bg-brand-color-4">
                 <div class="card-body" style="background-image: url('../assets/images/layout/nav-card-bg.svg')">
                     <h5 class="text-dark">Kini Tersedia</h5>
                     <p class="text-dark text-opacity-75">Saat ini sudah tersedia portal web Musholla Al Muhajirin
@@ -55,13 +79,13 @@
                     <a href="https://phoenixcoded.support-hub.io/" class="btn btn-primary" target="_blank">Lihat
                         Website</a>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="card pc-user-card">
             <div class="card-body">
                 <div class="d-flex align-items-center">
                     <div class="flex-shrink-0">
-                        <img src="../assets/images/user/avatar-1.jpg" alt="user-image"
+                        <img src="{{ asset('assets/images/user/avatar-1.jpg') }}" alt="user-image"
                             class="user-avtar wid-45 rounded-circle" />
                     </div>
                     <div class="flex-grow-1 ms-3 me-2">

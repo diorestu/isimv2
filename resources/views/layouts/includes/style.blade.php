@@ -8,7 +8,7 @@
 <meta name="author" content="phoenixcoded" />
 
 <!-- [Favicon] icon -->
-<link rel="icon" href="assets/images/favicon.svg" type="image/x-icon" />
+<link rel="icon" href="{{ asset('assets/images/favicon.svg') }}" type="image/x-icon" />
 
 <!-- map-vector css -->
 <link rel="stylesheet" href="assets/css/plugins/jsvectormap.min.css">
@@ -27,3 +27,4 @@
 <!-- [Template CSS Files] -->
 <link rel="stylesheet" id="main-style-link" href="{{ asset('assets/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/style-preset.css ') }}">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">

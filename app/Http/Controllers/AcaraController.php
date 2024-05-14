@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use App\Models\Acara;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Plusemon\Notify\Facades\Notify;
 
 class AcaraController extends Controller
 {
     public function index()
     {
-        $acara = Acara::paginate();
+        $acara = Acara::orderBy('tanggal', 'DESC')->orderBy('jam', 'ASC')->get();
         return view('pages.acara.index', compact('acara'));
     }
 
@@ -19,7 +21,7 @@ class AcaraController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.acara.create');
     }
 
     /**
@@ -27,12 +29,18 @@ class AcaraController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
+        $input        = $request->all();
         try {
-            DB::beginTransaction();
-            Acara::create($input);
-            DB::commit();
-            return redirect()->back();
+            $awal  = new DateTime($input['tanggal']);
+            $akhir = new DateTime(); // waktu sekarang
+            if ($awal < $akhir) {
+                return redirect()->back()->with('error', 'Anda Menginputkan Tanggal Lampau');
+            } else {
+                DB::beginTransaction();
+                Acara::create($input);
+                DB::commit();
+                return redirect()->back()->with('success', 'Berhasil');
+            }
         } catch (\Throwable $th) {
             DB::rollback();
             //throw $th;
@@ -42,9 +50,10 @@ class AcaraController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $acara = Acara::findOrFail($id);
+        return view('pages.acara.detail', compact('acara'));
     }
 
     /**
