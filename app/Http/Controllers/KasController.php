@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class KasController extends Controller
 {
@@ -11,7 +14,8 @@ class KasController extends Controller
      */
     public function index()
     {
-        //
+        $data = Kas::orderBy('saldo', 'DESC')->orderBy('target', 'ASC')->get();
+        return view('pages.kas.index', compact('data'));
     }
 
     /**
@@ -19,7 +23,7 @@ class KasController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.kas.create');
     }
 
     /**
@@ -27,7 +31,18 @@ class KasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input            = $request->all();
+        $input['id_user'] = Auth::user()->id;
+        $input['id_pj']   = Auth::user()->id;
+        try {
+            DB::beginTransaction();
+            Kas::create($input);
+            DB::commit();
+            return redirect()->back()->with('success', 'Berhasil');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Gagal: ' . $th->getMessage());
+        }
     }
 
     /**
@@ -35,7 +50,6 @@ class KasController extends Controller
      */
     public function show(string $id)
     {
-        //
     }
 
     /**
@@ -43,7 +57,6 @@ class KasController extends Controller
      */
     public function edit(string $id)
     {
-        //
     }
 
     /**
@@ -51,7 +64,6 @@ class KasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
     }
 
     /**

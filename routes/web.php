@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/pages/website.php';
 
-Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('post-login', [LoginController::class, 'postLogin'])->name('login.post');
-Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::prefix('app')->group(function () {
+Route::prefix('app')->middleware('auth')->group(function () {
     Route::get('dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
 
     require __DIR__ . '/pages/acara.php';

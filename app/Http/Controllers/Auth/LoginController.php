@@ -19,17 +19,17 @@ class LoginController extends Controller
     public function postLogin(Request $request)
     {
         $request->validate([
-            'email' => 'required',
+            'username' => 'required',
             'password' => 'required',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
-                ->withSuccess('You have Successfully loggedin');
+            return redirect()->intended('app/dashboard')
+                ->withSuccess('Selamat Datang di ISIM');
         }
 
-        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+        return redirect("login")->with('error', 'Akun tidak terdaftar!');
     }
 
 

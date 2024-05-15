@@ -4,7 +4,7 @@
         <div class="m-header">
             <a href="{{ route('dashboard') }}" class="b-brand text-primary">
                 <!-- ========   Change your logo from here   ============ -->
-                <img src="{{ public_path('assets/images/logo-dark.svg') }}" alt="logo image" class="logo-lg" />
+                <img src="{{ asset('logo_muhajirin.png') }}" alt="logo image" class="logo-lg" width="250" />
                 <span class="badge bg-brand-color-2 rounded-pill ms-2 theme-version"></span>
             </a>
         </div>
@@ -51,7 +51,7 @@
                     <i class="ph-duotone ph-chart-pie"></i>
                 </li>
                 <li class="pc-item">
-                    <a href="javascript:void(0)" class="pc-link">
+                    <a href="{{ route('kas.index') }}" class="pc-link">
                         <span class="pc-micon">
                             <i class="ph-duotone ph-projector-screen-chart"></i>
                         </span>
@@ -97,7 +97,8 @@
                             data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,20">
                             <i class="ph-duotone ph-windows-logo"></i>
                         </a>
-                        <div class="dropdown-menu">
+                        <form class="dropdown-menu" action="{{ route('logout') }}" method="post">
+                            @csrf
                             <ul>
                                 <li><a class="pc-user-links">
                                         <i class="ph-duotone ph-user"></i>
@@ -111,17 +112,29 @@
                                         <i class="ph-duotone ph-lock-key"></i>
                                         <span>Ubah Sandi</span>
                                     </a></li>
-                                <li><a class="pc-user-links">
+                                <li><a class="pc-user-links login-button" href="javascript:void(0)">
                                         <i class="ph-duotone ph-power"></i>
                                         <span>Keluar</span>
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </nav>
-<!-- [ Sidebar Menu ] end -->
+
+
+@push('js')
+    <script>
+        $(document).ready(function() {
+            $(document).on("click", ".login-button", function() {
+                var form = $(this).closest("form");
+                //console.log(form);
+                form.submit();
+            });
+        });
+    </script>
+@endpush
