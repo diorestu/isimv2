@@ -2,63 +2,88 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Keuangan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KeuanganController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function informasi()
     {
-        //
+        $data = Keuangan::all();
+        return view('pages.keuangan.index', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function debet(Request $request)
     {
-        //
+        $input = $request->all();
+        $input['id_user'] = auth()->user()->id;
+        try {
+            DB::beginTransaction();
+            Keuangan::create($input);
+            DB::commit();
+            return redirect()->back()->with('success', 'Berhasil');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Gagal: ' . $th->getMessage());
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function kredit(Request $request)
     {
-        //
+        $input = $request->all();
+        $input['id_user'] = auth()->user()->id;
+        try {
+            DB::beginTransaction();
+            Keuangan::create($input);
+            DB::commit();
+            return redirect()->back()->with('success', 'Berhasil');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Gagal: ' . $th->getMessage());
+        }
+    }
+    public function saveDebet(Request $request)
+    {
+        $input = $request->all();
+        $input['id_user'] = auth()->user()->id;
+        try {
+            DB::beginTransaction();
+            Keuangan::create($input);
+            DB::commit();
+            return redirect()->back()->with('success', 'Berhasil');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Gagal: ' . $th->getMessage());
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function saveKredit(Request $request)
     {
-        //
+        $input = $request->all();
+        $input['id_user'] = auth()->user()->id;
+        try {
+            DB::beginTransaction();
+            Keuangan::create($input);
+            DB::commit();
+            return redirect()->back()->with('success', 'Berhasil');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Gagal: ' . $th->getMessage());
+        }
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function laporan(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $input = $request->all();
+        $input['id_user'] = auth()->user()->id;
+        try {
+            DB::beginTransaction();
+            Keuangan::create($input);
+            DB::commit();
+            return redirect()->back()->with('success', 'Berhasil');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Gagal: ' . $th->getMessage());
+        }
     }
 }

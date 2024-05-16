@@ -63,8 +63,13 @@
                                 class="ph-duotone ph-layout"></i></span><span class="pc-mtext">Transaksi</span><span
                             class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                     <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link" href="">Pemasukan</a></li>
-                        <li class="pc-item"><a class="pc-link" href="">Pengeluaran</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('keuangan.informasi') }}">Informasi
+                                Keuangan</a></li>
+                        <li class="pc-item"><a class="pc-link" href="">Histori Transaksi</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('keuangan.pemasukan') }}">Pemasukan</a>
+                        </li>
+                        <li class="pc-item"><a class="pc-link"
+                                href="{{ route('keuangan.pengeluaran') }}">Pengeluaran</a></li>
                         <li class="pc-item"><a class="pc-link" href="">Laporan</a>
                         </li>
                     </ul>

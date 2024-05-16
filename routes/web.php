@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\KasController;
-use App\Http\Controllers\Web\PageController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KasController;
+use App\Http\Controllers\KeuanganController;
+use App\Http\Controllers\Auth\LoginController;
 
 
 require __DIR__ . '/pages/website.php';
@@ -23,5 +23,14 @@ Route::prefix('app')->middleware('auth')->group(function () {
         Route::get('/tambah', 'create')->name('tambah');
         Route::post('/tambah', 'store')->name('simpan');
         Route::post('/lihat', 'show')->name('lihat');
+    });
+
+    Route::controller(KeuanganController::class)->name('keuangan.')->prefix('keuangan')->group(function () {
+        Route::get('/', 'informasi')->name('informasi');
+        Route::get('/pemasukan', 'debet')->name('pemasukan');
+        Route::get('/pengeluaran', 'kredit')->name('pengeluaran');
+        Route::post('/pemasukan', 'saveDebet')->name('input.pemasukan');
+        Route::post('/pengeluaran', 'saveKredit')->name('input.pengeluaran');
+        Route::post('/laporan', 'report')->name('lihat');
     });
 });

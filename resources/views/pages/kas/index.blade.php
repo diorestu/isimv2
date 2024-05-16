@@ -27,7 +27,7 @@
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#!">Ubah</a>
-                            <a class="dropdown-item text-danger font-extrabold" href="#!">Hapus</a>
+                            <a class="dropdown-item text-danger font-extrabold  " href="#!">Hapus</a>
                         </div>
                     </div>
                     </div>
