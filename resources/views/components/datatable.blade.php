@@ -46,7 +46,7 @@
     </div>
     <div class="card-body" style="padding: 0 !important; ">
         <div class="table-responsive">
-            <table class="table table-striped table-sm table-bordered mb-0" id="myTable">
+            <table class="table table-hover table-sm mb-0" id="myTable">
                 <thead>
                     <tr>
                         @foreach ($thead as $item)
