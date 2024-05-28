@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class JamaahController extends Controller
 {
@@ -13,7 +15,7 @@ class JamaahController extends Controller
     public function index()
     {
         $data = Member::get();
-        return view('jamaah.index', compact('data'));
+        return view('pages.jamaah.index', compact('data'));
     }
 
     /**
@@ -21,7 +23,7 @@ class JamaahController extends Controller
      */
     public function create()
     {
-        return view('jamaah.add');
+        return view('pages.jamaah.create');
     }
 
     /**
@@ -29,7 +31,33 @@ class JamaahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input            = $request->all();
+        $input['id_user'] = Auth::user()->id;
+        $input['id_pj']   = Auth::user()->id;
+        try {
+            DB::beginTransaction();
+            Member::create($input);
+            DB::commit();
+            return redirect()->back()->with('success', 'Berhasil');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Gagal: ' . $th->getMessage());
+        }
+    }
+
+    public function storeKK(Request $request)
+    {
+        $input                      = $request->all();
+        $input['hubungan_keluarga'] = 'KK';
+        try {
+            DB::beginTransaction();
+            Member::create($input);
+            DB::commit();
+            return redirect()->back()->with('success', 'Berhasil');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Gagal: ' . $th->getMessage());
+        }
     }
 
     /**

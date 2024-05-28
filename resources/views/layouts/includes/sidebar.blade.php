@@ -4,8 +4,8 @@
         <div class="m-header">
             <a href="{{ route('dashboard') }}" class="b-brand text-primary">
                 <!-- ========   Change your logo from here   ============ -->
-                <img src="{{ asset('logo_muhajirin.png') }}" alt="logo image" class="logo-lg" width="250" />
-                <span class="badge bg-brand-color-2 rounded-pill ms-2 theme-version"></span>
+                <img src="{{ asset('img/logo_muhajirin.png') }}" alt="logo image" class="logo-lg" width="250" />
+                {{-- <span class="badge bg-brand-color-2 rounded-pill ms-2 theme-version"></span> --}}
             </a>
         </div>
         <div class="navbar-content">
@@ -30,7 +30,8 @@
                         {{-- <span class="pc-badge">2</span> --}}
                     </a>
                     <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link" href="index.html">Tambah Baru</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('jamaah.index') }}">Data Jamaah</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('jamaah.tambah') }}">Tambah Baru</a></li>
                         <li class="pc-item"><a class="pc-link" href="#">Data Per Wilayah</a> </li>
                         <li class="pc-item"><a class="pc-link" href="#">Infografis Jamaah</a> </li>
                     </ul>
@@ -94,7 +95,7 @@
                             class="user-avtar wid-45 rounded-circle" />
                     </div>
                     <div class="flex-grow-1 ms-3 me-2">
-                        <h6 class="mb-0">Andreyadi Muchtar</h6>
+                        <h6 class="mb-0">{{ auth()->user()->nama }}</h6>
                         <small>Administrator</small>
                     </div>
                     <div class="dropdown">

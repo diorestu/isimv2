@@ -1,17 +1,17 @@
 @extends('layouts.main')
 
 @php
-    $thead = ['No', 'Tanggal', 'Jam', 'Deskripsi Acara', 'Nama PJ', 'Opsi'];
+    $thead = ['No', 'Tanggal', 'Jam', 'Deskripsi Jamaah', 'Nama PJ', 'Opsi'];
 @endphp
 
 @section('content')
-    <x-page-header title="Acara" />
+    <x-page-header title="Jamaah" />
     <x-datatable :thead=$thead>
         <x-slot name='header'>
-            <a href="{{ route('acara.tambah') }}" class="btn btn-shadow btn-secondary d-inline-flex text-white"><i
+            <a href="{{ route('jamaah.tambah') }}" class="btn btn-shadow btn-secondary d-inline-flex text-white"><i
                     class="ti ti-plus me-1"></i>Tambah</a>
         </x-slot>
-        @foreach ($acara as $item)
+        @foreach ($data as $item)
             <tr>
                 <td class="text-center">{{ $loop->iteration }}</td>
                 <td>{{ tanggalIndo($item->tanggal) }}</td>

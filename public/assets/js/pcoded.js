@@ -412,7 +412,7 @@ for (var t = 0; t < tc.length; t++) {
 // authentication logo
 var tc = document.querySelectorAll(".auth-main.v2 .img-brand");
 for (var t = 0; t < tc.length; t++) {
-    tc[t].setAttribute("src", "../logo_muhajirin.png");
+    tc[t].setAttribute("src", "http://127.0.0.1:8000/img/logo_muhajirin.png");
 }
 
 // =======================================================
@@ -492,7 +492,10 @@ function layout_sidebar_change(value) {
         if (document.querySelector(".pc-sidebar .m-header .logo-lg")) {
             document
                 .querySelector(".pc-sidebar .m-header .logo-lg")
-                .setAttribute("src", "../assets/images/logo-white.svg");
+                .setAttribute(
+                    "src",
+                    "http://127.0.0.1:8000/img/logo_muhajirin.png"
+                );
         }
         var control = document.querySelector(
             ".theme-sidebar-color .btn.active"
@@ -512,7 +515,10 @@ function layout_sidebar_change(value) {
         if (document.querySelector(".pc-sidebar .m-header .logo-lg")) {
             document
                 .querySelector(".pc-sidebar .m-header .logo-lg")
-                .setAttribute("src", "../logo_muhajirin.png");
+                .setAttribute(
+                    "src",
+                    "http://127.0.0.1:8000/img/logo_muhajirin.png"
+                );
         }
         var control = document.querySelector(
             ".theme-sidebar-color .btn.active"
@@ -627,28 +633,40 @@ function layout_change(layout) {
         if (document.querySelector(".pc-sidebar .m-header .logo-lg")) {
             document
                 .querySelector(".pc-sidebar .m-header .logo-lg")
-                .setAttribute("src", "../assets/images/logo-white.svg");
+                .setAttribute(
+                    "src",
+                    "http://127.0.0.1:8000/img/logo_muhajirin.png"
+                );
         }
 
         if (document.querySelector(".navbar-brand .logo-lg")) {
             document
                 .querySelector(".navbar-brand .logo-lg")
-                .setAttribute("src", "../assets/images/logo-white.svg");
+                .setAttribute(
+                    "src",
+                    "http://127.0.0.1:8000/img/logo_muhajirin.png"
+                );
         }
         if (document.querySelector(".landing-logo")) {
             document
                 .querySelector(".landing-logo")
-                .setAttribute("src", "assets/images/logo-white.svg");
+                .setAttribute("src", "img/logo_muhajirin.png");
         }
         if (document.querySelector(".auth-main.v1 .auth-sidefooter")) {
             document
                 .querySelector(".auth-main.v1 .auth-sidefooter img")
-                .setAttribute("src", "../assets/images/logo-white.svg");
+                .setAttribute(
+                    "src",
+                    "http://127.0.0.1:8000/img/logo_muhajirin.png"
+                );
         }
         if (document.querySelector(".footer-top .footer-logo")) {
             document
                 .querySelector(".footer-top .footer-logo")
-                .setAttribute("src", "../assets/images/logo-white.svg");
+                .setAttribute(
+                    "src",
+                    "http://127.0.0.1:8000/img/logo_muhajirin.png"
+                );
         }
         var control = document.querySelector(".theme-layout .btn.active");
         if (control) {
@@ -664,12 +682,18 @@ function layout_change(layout) {
         if (document.querySelector(".pc-sidebar .m-header .logo-lg")) {
             document
                 .querySelector(".pc-sidebar .m-header .logo-lg")
-                .setAttribute("src", "../logo_muhajirin.png");
+                .setAttribute(
+                    "src",
+                    "http://127.0.0.1:8000/img/logo_muhajirin.png"
+                );
         }
         if (document.querySelector(".navbar-brand .logo-lg")) {
             document
                 .querySelector(".navbar-brand .logo-lg")
-                .setAttribute("src", "../logo_muhajirin.png");
+                .setAttribute(
+                    "src",
+                    "http://127.0.0.1:8000/img/logo_muhajirin.png"
+                );
         }
 
         if (document.querySelector(".landing-logo")) {
@@ -680,12 +704,18 @@ function layout_change(layout) {
         if (document.querySelector(".auth-main.v1 .auth-sidefooter")) {
             document
                 .querySelector(".auth-main.v1 .auth-sidefooter img")
-                .setAttribute("src", "../logo_muhajirin.png");
+                .setAttribute(
+                    "src",
+                    "http://127.0.0.1:8000/img/logo_muhajirin.png"
+                );
         }
         if (document.querySelector(".footer-top .footer-logo")) {
             document
                 .querySelector(".footer-top .footer-logo")
-                .setAttribute("src", "../logo_muhajirin.png");
+                .setAttribute(
+                    "src",
+                    "http://127.0.0.1:8000/img/logo_muhajirin.png"
+                );
         }
         var control = document.querySelector(".theme-layout .btn.active");
         if (control) {
